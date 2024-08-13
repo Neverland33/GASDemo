@@ -30,47 +30,47 @@
 
 创建一个GA_Melee继承自BaseAbility，添加一个标签
 
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807153949543.png" alt="image-20240807153949543"  />
+<img src="https://github.com/Neverland33/GASDemo/blob/master/Pics/image-20240807153949543.png"  />
 
 在BaseCharacter的BeginPlay()中学习技能（平A为Player和Enemy共有）
 
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807154151696.png" alt="image-20240807154151696"  />
+<img src="https://github.com/Neverland33/GASDemo/blob/master/Pics/image-20240807154151696.png" alt="image-20240807154151696"  />
 
 创建一个函数用于激活技能
 
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807154318388.png" alt="image-20240807154318388" style="zoom:80%;" />
+<img src="Pics/image-20240807154318388.png" alt="image-20240807154318388" style="zoom:80%;" />
 
 创建一个自定义事件，激活平A
 
-![image-20240807154500121](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807154500121.png)
+![image-20240807154500121](Pics/image-20240807154500121.png)
 
 在PlayerController中调用该事件
 
-![image-20240807154605012](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807154605012.png)
+![image-20240807154605012](Pics/image-20240807154605012.png)
 
 GA中逻辑
 
-![image-20240807154705032](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807154705032.png)
+![image-20240807154705032](Pics/image-20240807154705032.png)
 
 ### 平A中的碰撞处理
 
 MontageToPlay中为导入的ParagonShinbi中创建好的MeleeMontage，创建一个AnimNotifyState蓝图ANS_CollisionMelee，在重写函数NotifyBegin和NotifyEnd中开启和关闭武器的碰撞
 
-![image-20240807155623798](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807155623798.png)
+![image-20240807155623798](Pics/image-20240807155623798.png)
 
 （End中同理）
 
 在Montage中添加NotifyState
 
-![image-20240807155756304](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807155756304.png)
+![image-20240807155756304](Pics/image-20240807155756304.png)
 
 ### 添加CD
 
 创建GE_MeleeCD，并进行配置，最后在GA逻辑中要Commit
 
-![image-20240807160529705](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807160529705.png)
+![image-20240807160529705](Pics/image-20240807160529705.png)
 
-![image-20240807160502192](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807160502192.png)
+![image-20240807160502192](Pics/image-20240807160502192.png)
 
 
 
@@ -120,11 +120,11 @@ public:
 
 创建一个DT_CharacterAttribute，在其中填写属性值
 
-![image-20240807162005211](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807162005211.png)
+![image-20240807162005211](Pics/image-20240807162005211.png)
 
 为BaseCharacter的AbilitySystem添加AttributeSet
 
-![image-20240807162108872](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807162108872.png)
+![image-20240807162108872](Pics/image-20240807162108872.png)
 
 
 
@@ -134,13 +134,13 @@ public:
 
 创建一个GE_MeleeDamage，做如下配置
 
-![image-20240807162551555](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807162551555.png)
+![image-20240807162551555](Pics/image-20240807162551555.png)
 
 在Player和Enemy的武器碰撞组件的重叠事件中应用GE（通过ActorTag检测重叠）
 
-![image-20240807162717147](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807162717147.png)
+![image-20240807162717147](Pics/image-20240807162717147.png)
 
-![image-20240807162744725](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807162744725.png)
+![image-20240807162744725](Pics/image-20240807162744725.png)
 
 ### 溢出处理
 
@@ -177,7 +177,7 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectMo
 
 在GE_MeleeDamage使用该表
 
-![image-20240807164113021](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164113021.png)
+![image-20240807164113021](Pics/image-20240807164113021.png)
 
 
 
@@ -187,25 +187,25 @@ void UBaseAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectMo
 
 为Enemy创建BehaviorTree、Blackboard、AIController，为BP_EnemyCharacter设置AIController，在AIController中Run BehaviorTree
 
-![image-20240807164532118](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164532118.png)
+![image-20240807164532118](Pics/image-20240807164532118.png)
 
-![image-20240807164621128](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164621128.png)
+![image-20240807164621128](Pics/image-20240807164621128.png)
 
-![image-20240807164635219](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164635219.png)
+![image-20240807164635219](Pics/image-20240807164635219.png)
 
 BT_Enemy：
 
-![image-20240807164712909](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164712909.png)
+![image-20240807164712909](Pics/image-20240807164712909.png)
 
 BTT_FindPlayer：
 
-![image-20240807164807135](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164807135.png)
+![image-20240807164807135](Pics/image-20240807164807135.png)
 
-![image-20240807164821953](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164821953.png)
+![image-20240807164821953](Pics/image-20240807164821953.png)
 
 BTT_MeleeAttack：
 
-![image-20240807164853700](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807164853700.png)
+![image-20240807164853700](Pics/image-20240807164853700.png)
 
 
 
@@ -246,7 +246,7 @@ void AGASDemoCharacter::OnHealthAttributeValueChange(const FOnAttributeChangeDat
 
 在BP_BaseCharacter的BeginPlay中绑定委托
 
-![image-20240807170815733](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807170815733.png)
+![image-20240807170815733](Pics/image-20240807170815733.png)
 
 
 
@@ -256,23 +256,23 @@ void AGASDemoCharacter::OnHealthAttributeValueChange(const FOnAttributeChangeDat
 
 在BP_BaseCharacter中创建事件SetIsDead
 
-![image-20240807171126578](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807171126578.png)
+![image-20240807171126578](Pics/image-20240807171126578.png)
 
 在HealthChange事件中调用该事件
 
-![image-20240807171227293](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807171227293.png)
+![image-20240807171227293](Pics/image-20240807171227293.png)
 
 在BP_PlayerCharacter和BP_EnemyCharacter中分别重写HealthChange事件（注意都要先调用基类事件）
 
 BP_PlayerCharacter：
 
-![image-20240807171344429](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807171344429.png)
+![image-20240807171344429](Pics/image-20240807171344429.png)
 
 BP_EnemyCharacter：
 
-![image-20240807171711331](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807171711331.png)
+![image-20240807171711331](Pics/image-20240807171711331.png)
 
-![image-20240807171716147](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807171716147.png)
+![image-20240807171716147](Pics/image-20240807171716147.png)
 
 
 
@@ -282,15 +282,15 @@ BP_EnemyCharacter：
 
 制作一个敌人血条添加到BP_EnemyCharacter的Widget Component，在生命值改变时更新
 
-![image-20240807172203644](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807172203644.png)
+![image-20240807172203644](Pics/image-20240807172203644.png)
 
 制作一个玩家状态栏，在生命值改变时更新
 
-![image-20240807172218745](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807172218745.png)
+![image-20240807172218745](Pics/image-20240807172218745.png)
 
 在PlayerController的BeginPlay中将其添加到视口
 
-![image-20240807172330225](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807172330225.png)
+![image-20240807172330225](Pics/image-20240807172330225.png)
 
 
 
@@ -300,15 +300,15 @@ BP_EnemyCharacter：
 
 创建一个GA_BaseRegen，添加一个Cost GE：GE_BaseRegen，在GE中做如下配置
 
-![image-20240807172843017](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807172843017.png)
+![image-20240807172843017](Pics/image-20240807172843017.png)
 
-![image-20240807172948755](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807172948755.png)
+![image-20240807172948755](Pics/image-20240807172948755.png)
 
 在GA中Commit并在BP_PlayerCharacter的BeginPlay中学习并激活技能
 
-![image-20240807173102169](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807173102169.png)
+![image-20240807173102169](Pics/image-20240807173102169.png)
 
-![image-20240807173119638](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240807173119638.png)
+![image-20240807173119638](Pics/image-20240807173119638.png)
 
 
 
@@ -437,31 +437,31 @@ FGameplayAbilityInfo UBaseGameplayAbility::GetAbilityInfoByLevel(int level)
 
 #### 根据技能信息初始化
 
-![image-20240812152033065](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812152033065.png)
+![image-20240812152033065](Pics/image-20240812152033065.png)
 
 #### 在CD开始时更新
 
-![image-20240812152321970](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812152321970.png)
+![image-20240812152321970](Pics/image-20240812152321970.png)
 
 在BP_BaseAbility中调用
 
-![image-20240812153228343](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812153228343.png)
+![image-20240812153228343](Pics/image-20240812153228343.png)
 
 #### 在CD中时在Tick()中每帧更新
 
-![image-20240812152401786](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812152401786.png)
+![image-20240812152401786](Pics/image-20240812152401786.png)
 
-![image-20240812152420211](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812152420211.png)
+![image-20240812152420211](Pics/image-20240812152420211.png)
 
 ### 初始化
 
 在玩家角色的BeginPlay()获得技能时进行初始化
 
-![image-20240812151616388](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812151616388.png)
+![image-20240812151616388](Pics/image-20240812151616388.png)
 
 函数InitAbilityInfo将信息传送给UI进行初始化
 
-![image-20240812151951520](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812151951520.png)
+![image-20240812151951520](Pics/image-20240812151951520.png)
 
 
 
@@ -488,17 +488,17 @@ GA_Healing
 
 按键后播放Montage，给玩家施加一个瞬间回复生命值的GE，在Montage播放完后结束
 
-![image-20240812154817790](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812154817790.png)
+![image-20240812154817790](Pics/image-20240812154817790.png)
 
 GE_Healing
 
-![image-20240812154915867](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812154915867.png)
+![image-20240812154915867](Pics/image-20240812154915867.png)
 
 创建一个GameplayCue，将tag加给cost，在释放时生成一个粒子特效
 
-![image-20240812155325396](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812155325396.png)
+![image-20240812155325396](Pics/image-20240812155325396.png)
 
-![image-20240812155346383](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812155346383.png)
+![image-20240812155346383](Pics/image-20240812155346383.png)
 
 
 
@@ -512,15 +512,15 @@ GA_Dash
 
 对玩家施加一个推力，播放Montage，等待消息将接触的敌人击退（消息通过玩家一个SphereCollision的BeginOverlap事件发送）
 
-![image-20240812155528844](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812155528844.png)
+![image-20240812155528844](Pics/image-20240812155528844.png)
 
-![image-20240812155624024](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812155624024.png)
+![image-20240812155624024](Pics/image-20240812155624024.png)
 
-![image-20240812155639820](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812155639820.png)
+![image-20240812155639820](Pics/image-20240812155639820.png)
 
 消息的发送
 
-![image-20240812160020329](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812160020329.png)
+![image-20240812160020329](Pics/image-20240812160020329.png)
 
 在AnimNotifyState中控制DashCollision碰撞检测的开启和关闭
 
@@ -540,23 +540,23 @@ GA_Dash
 
 在BP_PlayerCharacter中创建一个事件分发器，用于控制结束技能，在GA中绑定事件
 
-![image-20240812161514492](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812161514492.png)
+![image-20240812161514492](Pics/image-20240812161514492.png)
 
 在BP_PlayerController中按键抬起时call
 
-![image-20240812161614908](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812161614908.png)
+![image-20240812161614908](Pics/image-20240812161614908.png)
 
 
 
 GA_Laser
 
-![image-20240812161902374](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812161902374.png)
+![image-20240812161902374](Pics/image-20240812161902374.png)
 
-![image-20240812161917098](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812161917098.png)
+![image-20240812161917098](Pics/image-20240812161917098.png)
 
 消息在LaserActor的BeginOverlap时发送（delay是为了在发送前已经在wait）
 
-![image-20240812162053858](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812162053858.png)
+![image-20240812162053858](Pics/image-20240812162053858.png)
 
 
 
@@ -703,27 +703,27 @@ bool AShockwaveTargetActor::GetPlayerLookAtPoint(FVector& Out_LookPoint)
 
 继承一个蓝图类BP_ShockwaveTargetActor，添加一个贴花，在Tick()中设置其位置
 
-![image-20240812163858917](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812163858917.png)
+![image-20240812163858917](Pics/image-20240812163858917.png)
 
 BP_PlayerController和BP_PlayerCharacter中
 
-![image-20240812164007828](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164007828.png)
+![image-20240812164007828](Pics/image-20240812164007828.png)
 
-![image-20240812164028240](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164028240.png)
+![image-20240812164028240](Pics/image-20240812164028240.png)
 
-![image-20240812164045437](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164045437.png)
+![image-20240812164045437](Pics/image-20240812164045437.png)
 
 GA_Shockwave
 
-![image-20240812164130029](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164130029.png)
+![image-20240812164130029](Pics/image-20240812164130029.png)
 
 在WaitTargetData节点中选择创建的BP_ShockwaveTargetActor
 
-![image-20240812164252519](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164252519.png)
+![image-20240812164252519](Pics/image-20240812164252519.png)
 
 GetTargetDataEndPoint和GetActorsFromTargetData分别获取包装的0号和1号负载
 
-![image-20240812164311580](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812164311580.png)
+![image-20240812164311580](Pics/image-20240812164311580.png)
 
 
 
@@ -814,18 +814,18 @@ void AIgniteTargetActor::ConfirmTargetingAndContinue()
 
 GA_Ignite
 
-![image-20240812165047961](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812165047961.png)
+![image-20240812165047961](Pics/image-20240812165047961.png)
 
 分别创建一个GE_Ignite_Damage_Instant和GE_Ignite_Damage_Last
 
 在Instant中加入Last
 
-![image-20240812165227250](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812165227250.png)
+![image-20240812165227250](Pics/image-20240812165227250.png)
 
 创建一个GC继承自GameplayCueNotify_Looping
 
-![image-20240812165445279](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812165445279.png)
+![image-20240812165445279](Pics/image-20240812165445279.png)
 
 在GE_Ignite_Damage_Last中加入该Cue的Tag
 
-![image-20240812165534669](C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20240812165534669.png)
+![image-20240812165534669](Pics/image-20240812165534669.png)
